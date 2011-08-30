@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Comm.js DOC</title>
+<link type="text/css" rel="stylesheet" href="http://misc.tg.com.cn/ui/css/core.css">
+<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+<script src="http://misc.tg.com.cn/ui/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://misc.tg.com.cn/ui/js/comm.js"></script>
+</head>
+
+<body>
+<h1>COMM.JS说明文档</h1>
+<h2>marquee</h2>
+<table>
+	<tr>
+		<td style="width:10%">参数</td>
+		<td style=" width:10%">默认值</td>
+		<td>功能</td>
+	</tr>
+	<tr>
+		<td>delay</td>
+	  <td>2000</td>
+	  <td>延迟时间，鼠标从元素上移出后，重新开始滚动的时间间隔。</td>
+	</tr>
+	<tr>
+	  <td>duration</td>
+	  <td>500</td>
+	  <td>滚动的速度</td>
+	</tr>
+	<tr>
+	  <td>itemCls</td>
+	  <td>'li'</td>
+		<td>自动滚动的元素</td>
+	</tr>
+</table>
+<h2>例子</h2>
+<style>
+	#marquee-example{ height:86px; overflow:hidden;}
+</style>
+<ul id="marquee-example">
+	<li>11111111111111</li>
+	<li>22222222222222</li>
+	<li>33333333333333</li>
+	<li>44444444444444</li>
+	<li>55555555555555</li>
+	<li>66666666666666</li>
+	<li>77777777777777</li>
+	<li>88888888888888</li>
+	<li>99999999999999</li>
+</ul>
+<script>
+	$("#marquee-example").marquee();
+</script>
+<h2>代码</h2>
+<div class="cssExample"> #marquee-example{ height:86px; overflow:hidden;}</div>
+<div class="htmlExample">
+&lt;ul id=&quot;marquee-example&quot;&gt;<br />
+&lt;li&gt;11111111111111&lt;/li&gt;<br />
+&lt;li&gt;22222222222222&lt;/li&gt;<br />
+&lt;li&gt;33333333333333&lt;/li&gt;<br />
+&lt;li&gt;44444444444444&lt;/li&gt;<br />
+&lt;li&gt;55555555555555&lt;/li&gt;<br />
+&lt;li&gt;66666666666666&lt;/li&gt;<br />
+&lt;li&gt;77777777777777&lt;/li&gt;<br />
+&lt;li&gt;88888888888888&lt;/li&gt;<br />
+&lt;li&gt;99999999999999&lt;/li&gt;<br />
+&lt;/ul&gt; </div>
+<div class="scriptExample">
+&lt;script&gt;<br />
+$(&quot;#marquee-example&quot;).marquee();<br />
+&lt;/script&gt; </div>
+<h2>说明</h2>
+<p>marquee的使用比较简单，如果不用修改参数的话，$(&quot;#marquee-example&quot;).marquee()即可。</p>
+</body>
+</html>
