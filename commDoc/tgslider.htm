@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Comm.js DOC</title>
+<link type="text/css" rel="stylesheet" href="http://misc.tg.com.cn/ui/css/core.css">
+<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+<script src="http://misc.tg.com.cn/ui/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://misc.tg.com.cn/ui/js/comm.js"></script>
+</head>
+
+<body>
+<h1>COMM.JS说明文档</h1>
+<h2>tgSlider</h2>
+<p>功能：幻灯片效果，可以规定自动或者手动滚动，是否循环，方向，每次显示的个数等等。</p>
+<table cellpadding="1" cellspacing="1" frame="below">
+	<tr>
+		<td style="width:10%">参数</td>
+		<td style=" width:10%">默认值</td>
+		<td>功能</td>
+	</tr>
+	<tr>
+		<td>btnPrevCls</td>
+		<td>'.btn-prev'</td>
+		<td>向前滚动按钮的class名</td>
+	</tr>
+	<tr>
+		<td>btnNextCls</td>
+		<td>'.btn-next'</td>
+		<td>向后滚动按钮的class名</td>
+	</tr>
+	<tr>
+		<td>pageCls</td>
+		<td>'.ctl-page'</td>
+		<td>序号按钮的class名</td>
+	</tr>
+	<tr>
+		<td>containerCls</td>
+		<td>'.slide-content'</td>
+		<td>滚动内容所在的容器class名</td>
+	</tr>
+	<tr>
+		<td>itemCls</td>
+		<td>'li'</td>
+		<td>滚动元素</td>
+	</tr>
+	<tr>
+		<td>activeCls</td>
+		<td>'cur'</td>
+		<td>序号按钮的选中状态class名，这里不用加“.”</td>
+	</tr>
+	<tr>
+		<td>perItem</td>
+		<td>5</td>
+		<td>滚动内容中显示的元素数</td>
+	</tr>
+	<tr>
+		<td>startIndex</td>
+		<td>0</td>
+		<td>从第几个元素开始</td>
+	</tr>
+	<tr>
+		<td>autoPlay</td>
+		<td>false</td>
+		<td>是否自动滚动 true or false</td>
+	</tr>
+	<tr>
+		<td>duration</td>
+		<td>5000</td>
+		<td>自动播放时的时间间隔</td>
+	</tr>
+	<tr>
+		<td>fxDuration</td>
+		<td>600</td>
+		<td>滚动的速度</td>
+	</tr>
+	<tr>
+		<td>circle</td>
+		<td>true</td>
+		<td>是否循环滚动 true or false</td>
+	</tr>
+	<tr>
+		<td>direction</td>
+		<td>'horizon'</td>
+		<td>方向，水平或者垂直 vertical or horizon</td>
+	</tr>
+    <tr>
+    	<td>onShow</td>
+    	<td>空</td>
+    	<td>滚动时的函数</td>
+    </tr>
+</table>
+<div class="indexExample">
+	<ul>
+		<li><a href="#slide-example-1">最简单的自动滚动Slide</a></li>
+		<li><a href="#slide-example-2">垂直滚动的slide</a></li>
+		<li><a href="#slide-example-3">手动控制的Slide</a></li>
+		<li><a href="#slide-example-4">翻页键控制的Slide</a></li>
+  </ul>
+</div>
+<h2><a name="slide-example-1">例子——最简单的自动滚动Slide</a></h2>
+<div id="slide-example1" class="slide-banner">
+  <div class="slide-content">
+    <ul>
+            <li><img src="images/s1.jpg" alt="" /></li>
+            <li><img src="images/s2.jpg" alt="" /></li>
+            <li><img src="images/s3.jpg" alt="" /></li>
+            <li><img src="images/s1.jpg" alt="" /></li>
+            <li><img src="images/s2.jpg" alt="" /></li>
+            <li><img src="images/s3.jpg" alt="" /></li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+	$("#slide-example1").tgSlider({       
+		containerCls: 'ul',
+		perItem: 1,
+		autoPlay: true});
+</script>
+<h2>说明</h2>
+<ul class="tur">
+	<li>首先建立一个div#slide-example作为总的容器，<strong>注意css中的position设为relative</strong>。</li>
+	<li>然后在个div#slide-example下建立一个div.slide-content，<strong>css中的position设为relative，overflow设为hidden，宽度则根据slide元素的宽度和要显示的个数设定。</strong></li>
+	<li>接着把slide部分（这里是ul）放在div.slide-content下，<strong>注意position设为absolute。</strong></li>
+    <li>ul下的li元素就是滚动的元素了，这是tgSlide插件中默认的item值，这里要把宽高设置一下,最好把float设置为left。</li>
+    <li>最后就是将tgSlide绑定在div#slide-example上，并设定参数。</li>
+</ul>
+<h2>代码</h2>
+
+<div class="cssExample">
+.slide-banner { position: relative; height:106px; margin-left:10px;}<br />
+  .slide-content { position: relative; width:256px; height:106px; overflow: hidden; }<br />
+  .slide-content ul { position: absolute; }<br />
+.slide-content li { float: left; width: 256px; height: 106px; }</div>
+<div class="htmlExample">&lt;div id=&quot;slide-example&quot; class=&quot;slide-banner&quot;&gt;<br />
+&lt;div class=&quot;slide-content&quot;&gt;<br />
+&lt;ul&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;/ul&gt;<br />
+&lt;/div&gt;<br />
+&lt;/div&gt;</div>
+<div class="scriptExample">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+$(&quot;#slide-example&quot;).tgSlider({ <br />
+containerCls: 'ul',<br />
+perItem: 1,<br />
+autoPlay: true});<br />
+&lt;/script&gt;</div>
+<p><a class="back" href="#">返回</a></p>
+<h2><a name="slide-example-2">例子——垂直滚动的slide</a></h2>
+<div id="slide-example2" class="slide-banner">
+  <div class="slide-content">
+    <ul>
+            <li><img src="images/s1.jpg" alt="" /></li>
+            <li><img src="images/s2.jpg" alt="" /></li>
+            <li><img src="images/s3.jpg" alt="" /></li>
+            <li><img src="images/s1.jpg" alt="" /></li>
+            <li><img src="images/s2.jpg" alt="" /></li>
+            <li><img src="images/s3.jpg" alt="" /></li>
+    </ul>
+  </div></div>
+  <script type="text/javascript">
+	$("#slide-example2").tgSlider({       
+		containerCls: 'ul',
+		direction: 'vertical',
+		perItem: 1,
+		autoPlay: true});
+</script>
+<h2>说明</h2>
+<p>这儿的css和html跟之前的例子是完全一样的，只要在tgSlide的参数里修改direction参数为vertical</p>
+<div class="scriptExample">&lt;script type=&quot;text/javascript&quot;&gt;<br />
+$(&quot;#slide-example&quot;).tgSlider({ <br />
+containerCls: 'ul',<br />
+direction: 'vertical',<br />
+perItem: 1,<br />
+autoPlay: true});<br />
+&lt;/script&gt;</div>
+</div>
+<p><a class="back" href="#">返回</a></p>
+<h2><a name="slide-example-3">例子——手动控制的Slide</a></h2>
+
+<div id="slide-example3" class="slide-banner">
+<a href="javascript:void(0)" class="btn-prev"><strong>《</strong></a>
+						<a href="javascript:void(0)" class="btn-next"><strong>》</strong></a>
+  <div class="slide-content">
+    <ul>
+            <li><img src="images/s1.jpg" alt="" /></li>
+            <li><img src="images/s2.jpg" alt="" /></li>
+            <li><img src="images/s3.jpg" alt="" /></li>
+            <li><img src="images/s1.jpg" alt="" /></li>
+            <li><img src="images/s2.jpg" alt="" /></li>
+            <li><img src="images/s3.jpg" alt="" /></li>
+    </ul>
+  </div></div>
+  <script type="text/javascript">
+	$("#slide-example3").tgSlider({       
+		containerCls: 'ul',
+		direction: 'horizon',
+		perItem: 1});
+</script>
+<h2>说明</h2>
+<p>这儿需要增加两个元素，就是向前和向后的按钮，如果使用的class名和默认的一样，就不需要在参数中进行设置。</p>
+<div class="cssExample">
+  .btn-prev{ position:absolute; left:0px; top:50px;}<br />
+.btn-next{ position:absolute; left:266px; top:50px;}</div>
+<div class="htmlExample">
+&lt;div id=&quot;slide-example3&quot; class=&quot;slide-banner&quot;&gt;<br />
+&lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-prev&quot;&gt;&lt;strong&gt;《&lt;/strong&gt;&lt;/a&gt;<br />
+&lt;a href=&quot;javascript:void(0)&quot; class=&quot;btn-next&quot;&gt;&lt;strong&gt;》&lt;/strong&gt;&lt;/a&gt;<br />
+&lt;div class=&quot;slide-content&quot;&gt;<br />
+&lt;ul&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;/ul&gt;<br />
+&lt;/div&gt;&lt;/div&gt; </div>
+<div class="scriptExample">
+  &lt;script type=&quot;text/javascript&quot;&gt;<br />
+$(&quot;#slide-example3&quot;).tgSlider({ <br />
+containerCls: 'ul',<br />
+direction: 'horizon',<br />
+perItem: 1});<br />
+&lt;/script&gt; </div>
+<p><a class="back" href="#">返回</a></p>
+<h2><a name="slide-example-4">例子——翻页键控制的Slide</a></h2>
+
+<div id="slide-example4" class="slide-banner">
+  <div class="slide-content">
+    <ul>
+            <li><img src="images/s1.jpg" alt="" /></li>
+            <li><img src="images/s2.jpg" alt="" /></li>
+            <li><img src="images/s3.jpg" alt="" /></li>
+            <li><img src="images/s1.jpg" alt="" /></li>
+    </ul>
+  </div>
+  <div class="slide-ctls">
+			<ul>
+				<li><span class="cur">1</span></li>
+				<li><span>2</span></li>
+				<li><span>3</span></li>
+                <li><span>4</span></li>
+			</ul>
+  </div>
+</div>
+<script type="text/javascript">
+	$("#slide-example4").tgSlider({       
+		containerCls: 'ul',
+		direction: 'horizon',
+		pageCls:'.slide-ctls span',
+		perItem: 1});
+</script>
+<h2>说明</h2>
+<p>需要增加翻页部分div.slide-ctls，并在参数中确认翻页部分为.slide-ctls span，并规定翻页元素被选中时的css。</p>
+<div class="cssExample">
+.slide-ctls { position: absolute; top: 110px; left: 160px; width:100px; }<br />
+.slide-ctls li { float: left; margin: 0 5px 0 0; }<br />
+.slide-ctls span { background: #db660f; cursor:pointer; border: 1px solid #ae520d; font-family: sans-serif; font-weight: bold; font-size: 10px; float: left; width: 18px; height: 18px; line-height: 18px; text-align: center; color: #fff; }<br />
+.slide-ctls .cur { background: #fff; border: 1px solid #d16210; color: #db660f; }</div>
+<div class="htmlExample">
+&lt;div id=&quot;slide-example4&quot; class=&quot;slide-banner&quot;&gt;<br />
+&lt;div class=&quot;slide-content&quot;&gt;<br />
+&lt;ul&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;img src=&quot;images/s1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;<br />
+&lt;/ul&gt;<br />
+&lt;/div&gt;<br />
+&lt;div class=&quot;slide-ctls&quot;&gt;<br />
+&lt;ul&gt;<br />
+&lt;li&gt;&lt;span class=&quot;cur&quot;&gt;1&lt;/span&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;span&gt;2&lt;/span&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;span&gt;3&lt;/span&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;span&gt;4&lt;/span&gt;&lt;/li&gt;<br />
+&lt;/ul&gt;<br />
+&lt;/div&gt;<br />
+&lt;/div&gt; </div>
+<div class="scriptExample">
+&lt;script type=&quot;text/javascript&quot;&gt;<br />
+$(&quot;#slide-example4&quot;).tgSlider({ <br />
+containerCls: 'ul',<br />
+direction: 'horizon',<br />
+pageCls:'.slide-ctls span',<br />
+perItem: 1});<br />
+&lt;/script&gt; </div>
+<p><a class="back" href="#">返回</a></p>
+</body>
+</html>

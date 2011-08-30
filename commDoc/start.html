@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>开始</title>
+<link type="text/css" rel="stylesheet" href="http://misc.tg.com.cn/ui/css/core.css">
+<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+</head>
+
+<body>
+<h1>开始使用comm.js</h1>
+<p>要使用comm.js中的功能，必须导入http://misc.tg.com.cn/ui/jquery.js和http://misc.tg.com.cn/ui/js/comm.js。<br />
+  <br />
+</p>
+<div class="htmlExample">
+&lt;script src=&quot;http://misc.tg.com.cn/ui/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br />
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://misc.tg.com.cn/ui/js/comm.js&quot;&gt;&lt;/script&gt; </div>
+<p><br />
+  建议把这段代码放到页面结构的最后，&lt;/body&gt;之前。<br />
+而将插件绑定到相应元素的js代码必须放在这两段代码之后，并最好以如下的形式出现：<br />
+<br />
+</p>
+<div class="scriptExample">
+  <p>$(document).ready(function(){</p>
+  <p>$(&quot;#elementId1&quot;).tdSlider({参数});</p>
+  <p>$(&quot;#elementId2&quot;).tabSwitcher({参数}); </p>
+  <p>});</p>
+</div>
+</body>
+</html>
