@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title>JS实现CheckBox全选、全不选</title>
+</head>
+<body>
+    <div>
+        <input id="checkAll" type="checkbox" onclick="checkAll(this,'subBox')" />全选
+		<input id="uncheck" type="checkbox" onclick="unCheck('subBox')" />反选
+        <input name="subBox" type="checkbox" />项1
+        <input name="subBox" type="checkbox" />项2
+        <input name="subBox" type="checkbox" />项3
+        <input name="subBox" type="checkbox" />项4
+    </div>
+<script type="text/javascript">
+//全选全不选
+function checkAll(obj,cName)
+{
+	var checkboxs = document.getElementsByName(cName);
+	for(var i=0;i<checkboxs.length;i++){checkboxs[i].checked = obj.checked;}
+}
+//反选
+function unCheck(cName)
+{
+	obj=document.getElementsByName(cName);
+	for(var i=0;i<obj.length;i++)
+	{
+		if(obj.item(i).checked)
+		{
+			obj.item(i).checked=false;
+		}
+		else
+		{
+			obj.item(i).checked=true;
+		}
+	}
+}
+</script>
+</body>
+</html>
