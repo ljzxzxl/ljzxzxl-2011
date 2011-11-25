@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<script language="javascript" type="text/javascript" src="WdatePicker.js"></script>
+<title>天生创想《客户及进销存》企业管理系统</title>
+ 
+</head>
+<body>
+<div id="Holder">
+<div id="MainPage">
+<form name="save" method="post" action="?ac=add&do=save&fileurl=app">
+	<input type="hidden" name="savetype" value="add" />
+
+<table class="TableTop" width="90%">
+   <tr>
+      <td class="left"></td>
+      <td class="center">投票基本信息</td>
+      <td class="right"></td>
+   </tr>
+</table>
+ <table class="TableBlock no-top-border" width="90%">
+   
+	<tr>
+      <td nowrap class="TableContent" width="15%"> 主题：<input type="text" onclick="WdatePicker();" value="2011-11-07" size="20" class="BigInput" name="date"></td>
+      <td class="TableData">
+      <input type="text" name="title" class="BigInput" style="width:378px;" size="20" value="" /></td>
+    </tr>
+	<tr>
+      <td nowrap class="TableContent" width="15%"> 描述：</td>
+      <td class="TableData">
+        <textarea name="content" cols="60" rows="3" class="BigInput"></textarea></td>
+    </tr>
+    <tr>
+      <td nowrap class="TableHeader" colspan="2"><b>&nbsp;设置投票选项</b></td>
+    </tr>
+		<tr>
+      <td nowrap class="TableContent" width="15%"> 投票选项：</td>
+      <td class="TableData">
+	  
+	  <div style="float:left; width:100%; background-color:#FFFFFF; border:1px solid #999999; height:260px;overflow:hidden;overflow-y:scroll;">
+	  
+	  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+	  <?php for($i=1;$i<=20;$i++){?>
+        <tr><td  height="30" align="left" bgcolor="#CCCCCC" style="font-size:14px;">	  
+        选项<?=$i?>：
+            <input name="app_option<?=$i?>" type="text" class="BigInput" value="" size="60" />
+		</td></tr>
+		<?php }?>
+      </table>
+	  </div>
+		</td>
+    </tr>
+    <tr align="center" class="TableControl">
+      <td colspan="2" nowrap height="35">
+		<input type="button" name="Submit" value="保存信息" class="BigButton" onclick="sendForm();"> 
+      </td>
+    </tr>
+  </table>
+</form>
+</div>
+</div>
+
+ 
+</body>
+</html>
