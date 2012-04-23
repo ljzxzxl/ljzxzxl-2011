@@ -1,6 +1,8 @@
 <?php
 echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 echo '<br/>';
+echo $_SERVER['HTTP_REFERER'].$_SERVER['REQUEST_URI'];
+echo '<br/>';
 $c='';
 $m='';
 $url='localhost/dbs/Code/site_manage/index.php?c=company&m=company_add&areaflag=shanghai';
